@@ -1,0 +1,18 @@
+mov R0, 1               ;R0 holds 1 - memory cell 1
+mov R1, 2               ;R1 holds 2 - memory cell 2
+mov R2, 0               ;R2 holds 0 - stores final value
+mov R3, 0               ;R3 holds 0 - counter
+mov R4, 8               ;Test number1 in memory cell 1
+mov [R0], R4            ;Stores number1 in memory cell 1
+mov R4, [R0]            ;Loads number1 into R4
+mov R5, 7               ;Test number2 in memory cell 2
+mov [R1], R5            ;Stores number2 in memory cell 2
+mov R5, [R1]            ;Loads number2 into R5
+cmp R3, R5              ;Compares register 3(counter) and 5(the number of memory cell 2)
+je 46                   ;Jump to instruction 44 after compare
+add R2, R4              ;Adds register 4 to 2
+inc R3                  ;Increments register 3 for looping
+jmp 39                  ;Jump back to instruction 39 to continue looping
+mov R5, 5               ;R5 holds 5 - final memory cell
+mov [R5], R2            ;Stores final value in memory cell 5
+halt

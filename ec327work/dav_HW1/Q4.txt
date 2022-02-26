@@ -1,0 +1,26 @@
+mov R0, 7       ;R0 holds 7 -  (memory cell 7)
+mov R1, 8       ;R1 holds 8 - (memory cell 8)
+mov R2, 0       ;R2 holds 0 - (counter/answer)
+mov R3, 0       ;R3 holds 0 - (looping number)
+mov R4, 23      ;Dividend
+mov R5, 4       ;Divisor
+cmp R3, R5      ;Compares R3 and R5 to check if the divisor is 0
+je 54           ;If divisor is 0, jump to 54 and put 0 in answer
+mov [R0], R4    ;Store dividend into memory cell 7
+mov R4, [R0]    ;Loads dividend into register 4
+mov [R1], R5    ;Stores divisor into memory cell 8
+mov R5, [R1]    ;Loads divisor into register 5
+cmp R3, R4      ;Compares R3 and R4 for looping purposes
+je 52           ;Jumps to 52 if compare is correct i.e. divison complete
+sub R4, R5      ;Subtracts divisor from dividend for looping
+inc R2          ;Increments R2 for looping to get quotient
+cmp R4, R5      ;Compares R4 and R5 to check if the dividend is divisible by divisor
+je 50           ;Jumps to 50 if above is true
+jmp 43          ;Jumps back to 43 to continue looping division
+inc R2          ;Increments R2 to get correct quotient
+jmp 54          ;Jumps to 54 to avoid being subtracted
+mov R1, 1       ;Moves 1 into R1 for decrementing
+sub R2, R1      ;Decrement the value by 1
+mov R1, 11      ;Moves 11 into R11 for final memory placing
+mov [R1], R2    ;Moves quotient into memory 11
+halt
