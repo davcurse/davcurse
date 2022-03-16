@@ -2,7 +2,7 @@
 
 int gcd (int x, int y)
 {
-    if (x == y) return 1;
+    if (x == y) return x;
 
     while (x != 0 && y != 0)
     {
